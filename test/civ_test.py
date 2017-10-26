@@ -12,36 +12,37 @@ import pytest
 from hypothesis import given
 from hypothesis.strategies import integers
 
-from civ import Player, democracy
+from civ import Player
+from civ.game import democracy
 
 
 def test_player_creation():
-    Player('me', 1000)
+    Player('me', 100)
 
 
 def test_player():
-    p = Player('me', 1000)
+    p = Player('me', 100)
     assert p.name == 'me'
-    assert p.aggression == 1000
+    assert p.aggression == 100
 
 
 def test_set_name():
-    p = Player('me', 1000)
+    p = Player('me', 100)
     p.name = 'me_too'
     assert p.name == 'me_too'
 
 
 def test_set_agression():
-    p = Player('me', 1000)
-    p.aggression = 100
-    assert p.aggression == 100
+    p = Player('me', 100)
+    p.aggression = 10
+    assert p.aggression == 10
 
 
 def test_democracy():
-    p = Player('me', 1000)
-    assert p.aggression == 1000
+    p = Player('me', 100)
+    assert p.aggression == 100
     democracy(p)
-    assert p.aggression == 998
+    assert p.aggression == 98
 
 
 PLAYER_LIST = [

@@ -12,7 +12,7 @@ cdef class Player(object):
 
     """
     cpdef public unicode name
-    cpdef public unsigned int aggression
+    cpdef public unsigned char aggression
 
     def __init__(self, unicode name, int aggression):
         """
@@ -24,15 +24,3 @@ cdef class Player(object):
         """
         self.name = name
         self.aggression = aggression
-
-
-cpdef democracy(object p):
-    """Apply the democracy trait to all players.
-
-    Args:
-        p (Player): Player on which to assign democracy
-
-    The democracy trait reduces the aggression of a player by 2
-
-    """
-    p.aggression = <unsigned int>p.aggression - 2
