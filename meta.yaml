@@ -1,0 +1,36 @@
+package:
+    name: civ-pytest
+    version: {{ GIT_DESCRIBE_TAG }}
+
+about:
+    home: https://github.com/malramsay64/civ-pytest
+    license: MIT
+    license_file: LICENSE
+
+source:
+    path: .
+
+requirements:
+    build:
+        - python {{ python }}
+        - setuptools 36.2.2
+        - cython 0.26.*
+
+    run:
+        - python {{ python }}
+        - pytest
+        - hypothesis
+
+build:
+    script: python setup.py install
+    number: {{ GIT_DESCRIBE_NUMBER }}
+
+test:
+    requires:
+        - pytest
+        - hypothesis
+    source_files:
+        - test/*
+    commands:
+        - python -c "import civ"
+        - pytest -v
