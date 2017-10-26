@@ -1,0 +1,7 @@
+# Cython build files
+*.so
+*.c
+
+# Setup.py build files
+dist
+build
