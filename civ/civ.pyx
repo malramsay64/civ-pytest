@@ -19,7 +19,8 @@ cdef class Player(object):
 
         Args:
             name (str): The name of the player
-            aggresssion (int): The aggression for the player
+            aggresssion (int): The aggression for the player. Aggressions can
+                be a value in the range [0, 255].
 
         """
         self.name = name
