@@ -9,6 +9,8 @@
 """Testing for the Civilisation simulator."""
 
 import pytest
+from hypothesis import given
+from hypothesis.strategies import integers
 
 from civ import Player, democracy
 
@@ -54,3 +56,8 @@ def test_many_democracy(player):
     aggression = player.aggression
     democracy(player)
     assert player.aggression == aggression - 2
+
+@given(integers(min_value=0, max_value=255))
+def test_aggression_hyypothesis(aggression):
+    p = Player('me', aggression)
+    assert p.aggression == aggression
