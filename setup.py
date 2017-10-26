@@ -15,8 +15,8 @@ from Cython.Build import cythonize
 
 extensions = [
     Extension(
-        'civ.civ',
-        ['civ/civ.pyx'],
+        'civ._civ',
+        ['civ/_civ.pyx'],
         libraries=['m'],
         include_dirs=[],
     ),
